@@ -1,6 +1,5 @@
 import Component from "../../vdom/createComponent";
 import HyperScript from "../../vdom/hyperScript";
-import { diff } from "../../vdom/vDom.js"
 import { OrderList } from "../../module";
  export default class OrderItems extends Component {
     constructor(props){
@@ -24,6 +23,9 @@ import { OrderList } from "../../module";
             this.state.list.splice(e.detail,1)
             let el = document.getElementsByClassName(`order-box-${e.detail}`);
             el[0].remove();
+        })
+        window.addEventListener('save',e =>{
+            console.log(`Orders :`,this.state.list)
         })
     }
 
@@ -57,10 +59,3 @@ import { OrderList } from "../../module";
     }
     
 }
-// const render = (vnode, parent) => {
-//     diff(undefined, vnode, parent)
-// }
-
-// export const OrderCreateDom = () =>(
-//     render(HyperScript(Orders), document.querySelector('#root'))
-// )

@@ -8,6 +8,14 @@ export default class ShippingAddress extends Component {
         this.state ={
             list:Address()
         }
+        window.addEventListener('save',e =>{
+            let billAddr = {}
+            this.state.list.map(item=>{
+                billAddr[item.key]= item.value
+            })
+            billAddr['orderDate']=document.getElementById("orderdate").value
+            console.log(`Shipping Address :`,billAddr)
+        })
     }
     render(props,state) {
         return HyperScript(

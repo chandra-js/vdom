@@ -68,7 +68,7 @@ export const OrderList = () =>(
             name:'Oulu Dining Chair(set of 4)',
             qty:3,
             price:340,
-            total:0,
+            total:1020,
             notes:''
         }
     ]

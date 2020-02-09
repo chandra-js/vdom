@@ -9,15 +9,18 @@ import "./styles/main.scss"
 AddressCreateDom()
 OrderCreateDom()
 
-window.deleteAction=(e)=>{
+window.deleteAction=()=>{
   let event = new CustomEvent('delete',{detail:e});
   window.dispatchEvent(event);
 }
-window.addAction=(e)=>{
+window.addAction=()=>{
     let event = new Event('addNew');
     window.dispatchEvent(event);
-  }
-addAction
+}
+window.saveAction=()=>{
+    let event = new Event('save');
+    window.dispatchEvent(event);
+}
 // document.getElementById("root")
 //     .addEventListener("click", 
 //         function (e)

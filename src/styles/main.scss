@@ -1,5 +1,9 @@
 $bg-g:#cccccc;
 $bg-w:white;
+$bg-bl:#5252ea;
+$bg-r: red;
+
+$c-w:white;
 body{
     background: $bg-g;
 }
@@ -114,8 +118,8 @@ $mob-gutter: (
 .delete{
     margin: 1%;
     width: 6%;
-    color:white;
-    background: red;
+    color:$c-w;
+    background:$bg-r;
     @media screen and (max-width: $grid-tablet-breakpoint) {
         margin: .5%;
         width: 7%;
@@ -147,5 +151,17 @@ $mob-gutter: (
     @media screen and (max-width: $grid-mobile-breakpoint) {
         display: none;
     }
-
+}
+.add-product{
+  margin-top: 1rem;
+}
+.add{
+  color:$c-w;
+  height: 2rem;
+  background: $bg-bl;
+}
+.save{
+  color:$c-w;
+  height: 2rem;
+  background: $bg-bl;
 }

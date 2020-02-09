@@ -7,10 +7,16 @@ export default class BillingAddress extends Component {
         this.state ={
             list:Address()
         }
+        window.addEventListener('save',e =>{
+            let billAddr = {}
+            this.state.list.map(item=>{
+                billAddr[item.key]= item.value
+            })
+            billAddr['expectedDate']=document.getElementById("expecteddate").value
+            console.log(`Billing Address :`,billAddr)
+        })
     }
-    onChangeVal (val){
-        console.log(val)
-    }
+
     render(props,state) {
         return HyperScript(
             'h3',{class : 'col-desk-6 col-tab-6 col-mob-4 bill'}, "Billing Address",
