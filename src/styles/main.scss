@@ -127,7 +127,8 @@ $mob-gutter: (
 }
 
 .app {
-    margin:$grid-desktop-sideMargin;
+    padding: 1rem;
+    margin: 2rem;
     background: $bg-w;
     box-shadow: 5px 5px 8px #eaeaf1;
     @media screen and (max-width: $grid-tablet-breakpoint) {

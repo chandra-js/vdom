@@ -28,11 +28,11 @@ const getRandomItemFromArray = (list) => {
         ]
       }
   
-    //   this.timer = setInterval(_ => {
-    //     this.setState({
-    //       list: [...this.state.list, getRandomItemFromArray(this.state.list)]
-    //     })
-    //   }, 1000)
+      this.timer = setInterval(_ => {
+        this.setState({
+          list: [...this.state.list, getRandomItemFromArray(this.state.list)]
+        })
+      }, 1000)
     }
   
     render(props, state) {

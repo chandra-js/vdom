@@ -21,7 +21,6 @@ const renderNode = vnode => {
       component.base = el
     }
     // recursively do this to all of its children
-    // (children || []).forEach(child =>{console.log(child)})
     (children || []).forEach(child => el.appendChild(renderNode(child)))
   
     return el
