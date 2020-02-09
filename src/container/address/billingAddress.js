@@ -1,6 +1,7 @@
 import Component from "../../vdom/createComponent";
 import HyperScript from "../../vdom/hyperScript";
 import { Address } from "../../module"
+import { CheckValidity } from "../../validateObj"
 export default class BillingAddress extends Component {
     constructor(props){
         super(props)
@@ -15,8 +16,14 @@ export default class BillingAddress extends Component {
             this.state.list.map(item=>{
                 billAddr[item.key] = document.getElementById(`bill${item.key}`).value
             })
-            billAddr['expectedDate']=document.getElementById("expecteddate").value
-            console.log(`Billing Address :`,billAddr)
+            billAddr['expectedDate']=document.getElementById("expecteddate").value;
+            /****     will not console 
+                        if anyfiled missing  
+                        && alert message          
+            ****/
+           ( CheckValidity(billAddr) === true )
+           ?console.log(`Billing Address :`,billAddr)
+           :alert(`Billing Address : ${CheckValidity(billAddr)} missing`)
         })
     }
 

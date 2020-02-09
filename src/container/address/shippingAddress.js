@@ -1,6 +1,7 @@
 import Component from "../../vdom/createComponent";
 import HyperScript from "../../vdom/hyperScript";
 import { Address } from "../../module"
+import { CheckValidity } from "../../validateObj"
 
 export default class ShippingAddress extends Component {
     constructor(props){
@@ -12,13 +13,20 @@ export default class ShippingAddress extends Component {
             *** console shipping address with save click  ***
         */
         window.addEventListener('save',e =>{
-            let billAddr = {}
+            let shipAddr = {}
             this.state.list.map(item=>{
-                // billAddr[item.key]= item.value
-                billAddr[item.key] = document.getElementById(`ship${item.key}`).value
+                // shipAddr[item.key]= item.value
+                shipAddr[item.key] = document.getElementById(`ship${item.key}`).value
             })
-            billAddr['orderDate']=document.getElementById("orderdate").value
-            console.log(`Shipping Address :`,billAddr)
+            shipAddr['orderDate']=document.getElementById("orderdate").value;
+            
+            /****     will not console 
+                        if anyfiled missing  
+                        && alert message          
+            ****/
+            ( CheckValidity(shipAddr) === true )
+                ?console.log(`Shipping Address :`,shipAddr)
+                :alert(`Shipping Address :${CheckValidity(shipAddr)} missing`)
         })
     }
     render(props,state) {

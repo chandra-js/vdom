@@ -12,10 +12,14 @@ import { OrderList } from "../../module";
         */
         window.addEventListener('valChange',e =>{
             let el = document.getElementsByClassName(`order-box-${e.detail}`);
-            el[0].children[4].value = parseInt(el[0].children[2].value)  * parseInt(el[0].children[3].value)
-            this.state.list[e.detail].qty=parseInt(el[0].children[2].value)
-            this.state.list[e.detail].price=parseInt(el[0].children[3].value)
+            (parseInt(el[0].children[2].value) < 1 || parseInt(el[0].children[2].value) < 1)
+            ?alert('qty and unit price would be greater than 0')
+            :(
+            el[0].children[4].value = parseInt(el[0].children[2].value)  * parseInt(el[0].children[3].value),
+            this.state.list[e.detail].qty=parseInt(el[0].children[2].value),
+            this.state.list[e.detail].price=parseInt(el[0].children[3].value),
             this.state.list[e.detail].total=parseInt(el[0].children[4].value)
+            )
         })
         /* 
             ***********   order item add  ************
@@ -44,7 +48,10 @@ import { OrderList } from "../../module";
             *** console order item with save click  ***
         */
         window.addEventListener('save',e =>{
-            console.log(`Orders :`,this.state.list)
+            this.state.list.length
+            ?console.log(`Orders :`,this.state.list)
+            :alert('Plsase add items')
+            
         })
     }
 
