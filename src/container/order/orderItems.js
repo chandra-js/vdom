@@ -7,6 +7,9 @@ import { OrderList } from "../../module";
         this.state ={
             list:OrderList()
         }
+        /* 
+            ** order item qty and unit price change **
+        */
         window.addEventListener('valChange',e =>{
             let el = document.getElementsByClassName(`order-box-${e.detail}`);
             el[0].children[4].value = parseInt(el[0].children[2].value)  * parseInt(el[0].children[3].value)
@@ -14,6 +17,9 @@ import { OrderList } from "../../module";
             this.state.list[e.detail].price=parseInt(el[0].children[3].value)
             this.state.list[e.detail].total=parseInt(el[0].children[4].value)
         })
+        /* 
+            ***********   order item add  ************
+        */
         window.addEventListener('addNew',()=>{
             this.setState({
                 list:[...this.state.list, {
@@ -26,11 +32,17 @@ import { OrderList } from "../../module";
               }]
               })
         })
+        /* 
+            ***********   order item delete  ************
+        */
         window.addEventListener('delete',e =>{
             this.state.list.splice(e.detail,1)
             let el = document.getElementsByClassName(`order-box-${e.detail}`);
             el[0].remove();
         })
+        /* 
+            *** console order item with save click  ***
+        */
         window.addEventListener('save',e =>{
             console.log(`Orders :`,this.state.list)
         })
@@ -40,7 +52,7 @@ import { OrderList } from "../../module";
         return HyperScript(
             'div',{class:'orders'},'ORDER LIST ',
 
-            // Desktop header
+            // Desktop header for order
 
             HyperScript('div',{class:'grid desk-only'},'',
                 HyperScript( 'div',{class:"col-desk-1"},`Product Id `),
@@ -52,7 +64,7 @@ import { OrderList } from "../../module";
                 HyperScript( 'div',{class:"col-desk-1"},`Actions`)
             ),
 
-
+            // Order Listing
         ...state.list.map((item,index)=> HyperScript('div',{class:`grid order-box-${index}`},'',
                 HyperScript( 'div',{class:"col-mob-1 col-desk-1"},`${item.id} `),
                 HyperScript( 'div',{class:"col-mob-3 col-desk-3"},`${item.name} `),
