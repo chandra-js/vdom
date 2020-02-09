@@ -12,22 +12,22 @@ import Items from "../item/items"
     }
     render(props,state) {
         return HyperScript(
-            'div',{class:'app'},'ORDER LIST ',
+            'div',{class:'app orders'},'ORDER LIST ',
 
             // Desktop header
 
-            HyperScript('div',{class:'grid order-box'},'',
-                HyperScript( 'div',{class:"col-desk-1 desk-only"},`Product Id `),
-                HyperScript( 'div',{class:"col-desk-3 desk-only"},`Product Name`),
-                HyperScript( 'div',{class:"col-desk-1 desk-only"},`Qty`),
-                HyperScript( 'div',{class:"col-desk-1 desk-only"},`Unit Price`),
-                HyperScript( 'div',{class:"col-desk-2 desk-only"},`Total Price`),
-                HyperScript( 'div',{class:"col-desk-3 desk-only"},`Notes`),
-                HyperScript( 'div',{class:"col-desk-1 desk-only"},`Actions`)
+            HyperScript('div',{class:'grid desk-only'},'',
+                HyperScript( 'div',{class:"col-desk-1 "},`Product Id `),
+                HyperScript( 'div',{class:"col-desk-3 "},`Product Name`),
+                HyperScript( 'div',{class:"col-desk-1 "},`Qty`),
+                HyperScript( 'div',{class:"col-desk-1 "},`Unit Price`),
+                HyperScript( 'div',{class:"col-desk-2 "},`Total Price`),
+                HyperScript( 'div',{class:"col-desk-3 "},`Notes`),
+                HyperScript( 'div',{class:"col-desk-1 "},`Actions`)
             ),
 
 
-        ...state.list.map(item => HyperScript('div',{class:'grid order-box'},'',
+        ...state.list.map((item,index)=> HyperScript('div',{class:`grid order-box-${index}`},'',
                 HyperScript( 'div',{class:"col-mob-1 col-desk-1"},`${item.id} `),
                 HyperScript( 'div',{class:"col-mob-3 col-desk-3"},`${item.name} `),
                 HyperScript( 'input',{type:"number",class:"input col-mob-1 col-desk-1", min :1,value:`${item.qty}`},''),

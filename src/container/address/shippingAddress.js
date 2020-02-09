@@ -11,7 +11,7 @@ export default class ShippingAddress extends Component {
     }
     render(props,state) {
         return HyperScript(
-            'h3',{class : 'col-desk-6 col-tab-6 col-mob-4'}, "Shipping Address",
+            'h3',{class : 'col-desk-6 col-tab-6 col-mob-4 shipping'}, "Shipping Address",
             HyperScript('div',{class : 'col-desk-6 col-tab-6 col-mob-4'}, ""),
             ...state.list.map((list,index) =>
                 HyperScript( 'input',{type:"text",class:"input",placeHolder:`${list.name}`,value:`${list.value}`,

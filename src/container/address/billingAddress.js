@@ -13,7 +13,7 @@ export default class BillingAddress extends Component {
     }
     render(props,state) {
         return HyperScript(
-            'h3',{class : 'col-desk-6 col-tab-6 col-mob-4'}, "Billing Address",
+            'h3',{class : 'col-desk-6 col-tab-6 col-mob-4 bill'}, "Billing Address",
             HyperScript('div',{class : 'col-desk-6 col-tab-6 col-mob-4'}, ""),
             ...state.list.map((list,index) =>
                 HyperScript( 'input',{type:"text",class:"input",placeHolder:`${list.name}`,value:`${list.value}`,
