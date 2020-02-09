@@ -52,7 +52,7 @@ export const OrderList = () =>(
             name:'Stock holm Dinning table',
             qty:1,
             price:529,
-            total:0,
+            total:529,
             notes:'1st item'
         },
         {
@@ -60,7 +60,7 @@ export const OrderList = () =>(
             name:'Dining Chair',
             qty:1,
             price:300,
-            total:0,
+            total:300,
             notes:''
         },
         {

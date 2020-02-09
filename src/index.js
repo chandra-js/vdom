@@ -8,8 +8,11 @@ import "./styles/main.scss"
 
 AddressCreateDom()
 OrderCreateDom()
-
-window.deleteAction=()=>{
+window.changeValue=(e)=>{
+    let event = new CustomEvent('valChange',{detail:e});
+    window.dispatchEvent(event);
+  }
+window.deleteAction=(e)=>{
   let event = new CustomEvent('delete',{detail:e});
   window.dispatchEvent(event);
 }

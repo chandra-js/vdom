@@ -11,7 +11,8 @@ export default class ShippingAddress extends Component {
         window.addEventListener('save',e =>{
             let billAddr = {}
             this.state.list.map(item=>{
-                billAddr[item.key]= item.value
+                // billAddr[item.key]= item.value
+                billAddr[item.key] = document.getElementById(`ship${item.key}`).value
             })
             billAddr['orderDate']=document.getElementById("orderdate").value
             console.log(`Shipping Address :`,billAddr)
@@ -22,8 +23,8 @@ export default class ShippingAddress extends Component {
             'h3',{class : 'col-desk-6 col-tab-6 col-mob-4 shipping'}, "Shipping Address",
             HyperScript('div',{class : 'col-desk-6 col-tab-6 col-mob-4'}, ""),
             ...state.list.map((list,index) =>
-                HyperScript( 'input',{type:"text",class:"input",placeHolder:`${list.name}`,value:`${list.value}`,
-                onchange:`onChangeVal(${index})`},'')
+                HyperScript( 'input',{type:"text",id:`ship${list.key}`,class:"input",placeHolder:`${list.name}`,value:`${list.value}`
+                },'')
             ),
             HyperScript('h5',{class : 'col-desk-6 col-tab-6 col-mob-4'}, "Expected Date"),
             HyperScript('input', {type:'date',id:"orderdate", class:"input",value:`${new Date().toISOString().substr(0, 10)}`},'')
